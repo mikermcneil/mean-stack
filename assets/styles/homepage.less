@@ -1,0 +1,253 @@
+// home page styles
+.mean-page {
+  background-color: @white;
+  font-family: "proxima-nova",sans-serif;
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative; 
+  }
+
+  //navigation styles
+  .nav {
+    height: 70px;
+    ul {
+      display: inline-block;
+      width: 100%;
+      padding-left: 0px;
+      li {
+        display: block;
+        float: left;
+        width: 25%;
+        text-align: center;
+        padding-top: 25px;
+        a {
+          color: @txtDk;
+          padding: 20px;
+          &:hover {
+            transition: color 500ms;
+            -webkit-transition: color 500ms;
+            cursor: pointer;
+            color: @pink;
+          }
+        }
+      }
+    }
+  } //navigation
+
+  // main turquoise section
+  .main-turquoise {
+    .turquoise-gradient();
+    height: 750px;
+    h1 {
+      // font-family: 'Josefin Slab', serif;
+      font-family: 'Roboto Slab', serif;
+      text-align: center;
+      color: @white;
+      font-size: 4.5em;
+      font-weight: 100;
+      padding-top: 70px;
+    }
+    p {
+      text-align: center;
+      color: @white;
+      font-size: 1.1em;
+      font-weight: normal;
+      padding-top: 10px;
+      margin: 0 auto;
+      width: 600px;
+    }
+    img {
+      display: block;
+      margin: 0 auto;
+      padding-top: 30px;
+    }
+  } //main-turquoise
+
+
+  // gray section
+  .gray {
+    background-color: @gray;
+    height: 150px;
+    .arrow {
+      -webkit-transition: margin-top 500ms;
+      background-color: @pink;
+      height: 60px;
+      width: 60px;
+      border-radius: 10px;
+      border: 1px solid @white;
+      margin-top: -35px;
+      position: absolute;
+      left: 49%;
+      background-image: url('/images/icon_arrow.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      &:hover {
+        transition: color 500ms;
+        -webkit-transition: margin-top 500ms;
+        margin-top: -45px;
+        cursor: pointer;
+      }
+    } //arrow
+    p {
+      color: @white;
+      text-align: center;
+      width: 500px;
+      margin: 0 auto;
+      padding-top: 50px;
+    }
+  }
+
+  // TOTEM SHOWCASE
+  // shared styles
+  .totem-showcase {
+    overflow: hidden;
+    .content {
+      width: 300px;
+      padding-top: 100px;
+      display: inline-block;
+      line-height: 1.6;
+      .links {
+        padding-top: 10px;
+        width: 70%;
+        margin: 0 auto;
+        a {
+          transition: color 500ms;
+          -webkit-transition: color 500ms;
+          color: @pink;
+          font-weight: bold;
+          &:hover {
+            transition: color 500ms;
+            -webkit-transition: color 500ms;
+          }
+        }
+        p {
+          display: inline-block;
+        }
+      }
+      img {
+        padding: 0 0 20px 50px;
+      }
+    }
+
+    img.totem {
+      position: absolute;
+    }
+
+    // MONGO
+    .mongo-section {
+      .clearfix();
+      background-color: @white;
+      height: 370px;
+      color: @txtDk;
+      .content {
+        margin-left: 250px;
+        float: left;
+        a:hover {
+          color: @txtDk;
+        }
+      }
+      img.totem {
+        .transition(right);
+        top: 15px;
+        right: -425px;
+        &:hover {
+          .transition(right);
+          cursor: pointer;
+          right: -225px;
+        }
+      }
+    } 
+
+    // EXPRESS
+    .express-section {
+      .clearfix();
+      background-color: @gray;
+      height: 370px;
+      color: @txtLt;
+      .content {
+        margin-right: 250px;
+        float: right;
+        a {
+          color: @turquoise;
+          &:hover {
+            color: @txtLt;
+          }
+        }
+      }
+      img.totem {
+        .transition(left);
+        left: -655px;
+        top: -20px;
+        &:hover {
+          .transition(left);
+          cursor: pointer;
+          left: -455px;
+        }
+      }
+    } 
+
+    // ANGULAR
+    .angular-section {
+      background-color: @ltGray;
+      height: 370px;
+      color: @txtDk;
+      .content {
+        float: left;
+        margin-left: 250px;
+        a:hover {
+          color: @txtDk;
+        }
+      }
+      img.totem {
+        .transition(right);
+        top: -30px;
+        right: -305px;
+        &:hover {
+          .transition(right);
+          cursor: pointer;
+          right: -105px;
+        }
+      }
+    }
+
+    // NODE
+    .node-section {
+      background-color: @gray;
+      height: 370px;
+      color: @txtLt;
+      .content {
+        float: right;
+        margin-right: 250px;
+        a {
+          color: @turquoise;
+          &:hover {
+            color: @txtLt;
+          }
+        }
+      }
+      img.totem {
+        .transition(left);
+        left: -315px;
+        top: -20px;
+        &:hover {
+          .transition(left);
+          cursor: pointer;
+          left: -115px;
+        }
+      }
+    }
+  }
+
+  .footer {
+    height: 150px;
+    p {
+      width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding-top: 70px;
+      opacity: .2;
+    }
+  }
+}
