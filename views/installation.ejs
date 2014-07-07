@@ -1,0 +1,60 @@
+<!-- Installation page -->
+<div class="installation-page">
+  <!-- Introduction -->
+  <div class="container">
+    <h1>MEAN Stack Set Up</h1>
+    <p>We’ll start by installing all of our tools. NodeJS and MongoDB are designed to be as close to operating system independent as possible and we will be covering three of the most common operating systems here – OSX, Windows 7/8, and Ubuntu. The one tool that you’ll need to get started is a bash shell (the standard linux command line). This tool takes different names on different operating systems, but they are all effectively the same for the purposes of this tutorial. If I use the term terminal, shell, or command line, I’m referring to a bash shell window. If you’re on a Mac or an Ubuntu machine, you’re looking for the Terminal. Windows doesn’t have one by default, but there are several alternatives. The git installer for Windows comes with “git bash,” which is the tool that I currently prefer.</p>
+    <ul class="os-list">
+      <li>OSX</li>
+      <li>Windows 7/8</li>
+      <li>Ubuntu</li>
+    </ul>
+  </div> <!-- container -->
+
+  <div class="blue-section">
+    <div class="container">
+      <h2>1. Installing NodeJS and npm</h2>
+      <div class="osx">
+        <p>First we’re going to install NodeJS and npm (node package manager). Open your terminal and run:</p>
+        <div class="code">
+          <p>sudo brew install node</p>
+          <p>curl http://npmjs.org/install.sh | sh</p>
+        </div> <!-- code -->
+      </div> <!-- osx -->
+      <p>Once you have successfully installed NodeJS, you should be able to run the “node” and “npm” commands from your terminal. When you run “node,” you should see a single “>.” This is the node shell, hit ctrl-c to close it.</p>
+      <p>When you run “npm” with no arguments, you should see a bunch of usage information. Keep in mind that “npm” often requires root permissions to run. If an npm command fails for unclear reasons, try running it through “sudo.”</p>
+    </div> <!-- container -->
+  </div> <!-- blue section -->
+
+    <div class="container">
+      <h2>2. Installing MongoDB</h2>
+      <div class="osx">
+        <p>Next, we’re going to install MongoDB. Open up your Terminal window and run</p>
+        <div class="code">
+          <p>sudo brew install mongodb</p>
+        </div> <!-- code -->
+        <p>That’s it! After the installation process is done, you should be able to run the command</p>
+        <div class="code">
+          <p>mongod</p>
+        </div> <!-- code -->
+        <p>Think of mongod as your local MongoDB server- you need to have a mongod process running in order to be able to use MongoDB. You can now leave mongod running, open up another terminal, and run</p>
+        <div class="code">
+          <p>mongo test</p>
+        </div> <!-- code -->
+      </div> <!-- osx -->
+    </div> <!-- container -->
+
+    <div class="blue-section">
+      <div class="container">
+        <h2>3. Installing ExpressJS / Sailsjs</h2>
+        <p>Now that we have MongoDB and NodeJS, it is time to install ExpressJS- this is pretty trivial now that we already have npm installed from step 2. Open up a terminal and run:</p>
+        <div class="code">
+          <p>npm install express -g</p>
+        </div> <!-- code -->
+        <p>The “-g” flag means that the package will be installed so you can run it from your terminal.</p>
+        <p>We’re using ExpressJS here because it adds some extremely useful tools for web development that NodeJS lacks. Contrary to what you may have heard, NodeJS is not a fully featured web server. NodeJS is simply a tool for doing I/O in an event-based concurrency framework with Javascript. It may be sufficient for a trivial server that prints “Hello, World” for every HTTP request, but it makes more sophisticated web development more difficult than it has to be. ExpressJS provides a familiar MVC (Model-View-Controller) framework for you to work with.</p>
+      </div>
+    </div>
+
+
+</div>

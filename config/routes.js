@@ -30,6 +30,10 @@ module.exports.routes = {
     view: 'homepage'
   },
 
+  '/installation': {
+    view: 'installation'
+  },
+
 
   // Custom routes here...
 
