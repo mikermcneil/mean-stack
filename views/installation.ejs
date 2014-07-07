@@ -11,6 +11,7 @@
     </ul>
   </div> <!-- container -->
 
+  <!-- NODE/NPM SECTION -->
   <div class="blue-section">
     <div class="container">
       <h2>1. Installing NodeJS and npm</h2>
@@ -26,6 +27,7 @@
     </div> <!-- container -->
   </div> <!-- blue section -->
 
+    <!-- MONGODB SECTION -->
     <div class="container">
       <h2>2. Installing MongoDB</h2>
       <div class="osx">
@@ -44,6 +46,8 @@
       </div> <!-- osx -->
     </div> <!-- container -->
 
+
+    <!-- EXPRESS/SAILS SECTION -->
     <div class="blue-section">
       <div class="container">
         <h2>3. Installing ExpressJS / Sailsjs</h2>
@@ -53,7 +57,29 @@
         </div> <!-- code -->
         <p>The “-g” flag means that the package will be installed so you can run it from your terminal.</p>
         <p>We’re using ExpressJS here because it adds some extremely useful tools for web development that NodeJS lacks. Contrary to what you may have heard, NodeJS is not a fully featured web server. NodeJS is simply a tool for doing I/O in an event-based concurrency framework with Javascript. It may be sufficient for a trivial server that prints “Hello, World” for every HTTP request, but it makes more sophisticated web development more difficult than it has to be. ExpressJS provides a familiar MVC (Model-View-Controller) framework for you to work with.</p>
-      </div>
+        <h3>Creating an ExpressJS Application</h3>
+        <p>Now that we have all of our server tools in place, let’s create an ExpressJS application. Start by running the command</p>
+        <div class="code">
+          <p>express mytestapp</p>
+          <p>cd mytestapp</p>
+          <p>npm install</p>
+        </div> <!-- code -->
+        <p>This should create a “mytestapp” folder in your current directory that will contain your application. You should be able to now run</p>
+        <div class="code">
+          <p>node app.js</p>
+        </div> <!-- code -->
+        <p>from the “mytestapp” folder. If you point your browser to http://localhost:3000, you should see a simple “Welcome to Express” screen.</p>
+      </div> <!-- container -->
+    </div> <!-- blue-section -->
+
+
+    <!-- ANGULARJS SECTION -->
+    <div class="container">
+      <h2>4. Adding AngularJS</h2>
+      <p>Add this code enclosed in a "script" tag to your application:</p>
+      <div class="code">
+        <p>src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></p>
+      </div> <!-- code -->
     </div>
 
 
