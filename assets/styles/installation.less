@@ -6,7 +6,7 @@
 
   .container {
     width: 600px;
-    margin: 25px auto;
+    margin: 50px auto;
   }
 
   h1 {
@@ -16,18 +16,46 @@
     font-weight: bold;
     text-align: center;
   }
+
+  h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 25px 0 25px;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 20px 0;
+    text-align: center;
+  }
+
   p {
     font-weight: 1em;
     line-height: 1.6;
     margin-bottom: 20px;
   }
 
+
+  // styles a label that immediately follows a radio button
+  .os-list input[type="radio"]:checked+label {
+    background-color: @turquoise;
+    color: @txtLt;
+    border-radius: 10px;
+  }
+
   .os-list {
-    margin: 25px 0;
+    margin: 0 0 50px;
     width: 100%;
     text-align: center;
 
-    li {
+    // hide the radio buttons
+    input[type="radio"] {
+      display: none;
+    }
+
+    label {
       display: inline-block;
       text-align: center;
       padding: 0px 7px;
@@ -41,23 +69,12 @@
     }
   }
 
-  h2 {
-    font-size: 1.5em;
-    font-weight: bold;
-    padding: 0 0 25px;
-    text-align: center;
-  }
-
-  h3 {
-    font-size: 1.2em;
-    font-weight: bold;
-    padding: 20px 0;
-    text-align: center;
-  }
-
   .blue-section {
     background-color: @ltGray;
     padding: 25px 0;
+    h2 {
+      padding-top: 0px;
+    }
   }
 
   // code block styles

@@ -4,33 +4,65 @@
   <div class="container">
     <h1>MEAN Stack Set Up</h1>
     <p>We’ll start by installing all of our tools. NodeJS and MongoDB are designed to be as close to operating system independent as possible and we will be covering three of the most common operating systems here – OSX, Windows 7/8, and Ubuntu. The one tool that you’ll need to get started is a bash shell (the standard linux command line). This tool takes different names on different operating systems, but they are all effectively the same for the purposes of this tutorial. If I use the term terminal, shell, or command line, I’m referring to a bash shell window. If you’re on a Mac or an Ubuntu machine, you’re looking for the Terminal. Windows doesn’t have one by default, but there are several alternatives. The git installer for Windows comes with “git bash,” which is the tool that I currently prefer.</p>
-    <ul class="os-list">
-      <li>OSX</li>
-      <li>Windows 7/8</li>
-      <li>Ubuntu</li>
-    </ul>
+    <h3>Choose your Operating System:</h3>
+    <form class="os-list">
+      <input id="osx" type="radio" name="os" ng-model="os" value="osx">
+      <label for="osx">OSX</label>
+      <input id="windows" type="radio" name="os" ng-model="os" value="windows">
+      <label for="windows">Windows 7/8</label>
+      <input id="ubuntu" type="radio" name="os" ng-model="os" value="ubuntu">
+      <label for="ubuntu">Ubuntu</label>
+    </form>
+    <div ng-show="os == 'osx'">osx selected</div>
+    <div ng-show="os == 'windows'">windows selected</div>
+    <div ng-show="os == 'ubuntu'">ubuntu selected</div>
   </div> <!-- container -->
 
   <!-- NODE/NPM SECTION -->
-  <div class="blue-section">
+  <div class="blue-section" ng-show="os">
     <div class="container">
       <h2>1. Installing NodeJS and npm</h2>
-      <div class="osx">
+      <!-- *************
+             OSX
+      ****************** -->     
+      <div class="osx" ng-show="os == 'osx'">
         <p>First we’re going to install NodeJS and npm (node package manager). Open your terminal and run:</p>
         <div class="code">
           <p>sudo brew install node</p>
           <p>curl http://npmjs.org/install.sh | sh</p>
         </div> <!-- code -->
       </div> <!-- osx -->
-      <p>Once you have successfully installed NodeJS, you should be able to run the “node” and “npm” commands from your terminal. When you run “node,” you should see a single “>.” This is the node shell, hit ctrl-c to close it.</p>
+      <!-- *************
+             WINDOWS
+      ****************** -->
+      <div class="windows" ng-show="os == 'windows'">
+        <p>Download the installer from  http://nodejs.org/download/. I recommend using the installer rather than the binary to save yourself the extra work of adding the binary location to the system path.</p>
+      </div> <!-- windows -->
+      <!-- *************
+             UBUNTU
+      ****************** -->
+      <div class="ubuntu" ng-show="os == 'ubuntu'">
+        <div class="code">
+          <p>sudo apt-get update</p>
+          <p>sudo apt-get install python-software-properties python g++ make</p>
+          <p>sudo add-apt-repository ppa:chris-lea/node.js</p>
+          <p>sudo apt-get update</p>
+          <p>sudo apt-get install nodejs npm</p>
+        </div>
+      </div>
+      <p>Once you have successfully installed NodeJS, you should be able to run the “node” and “npm” commands from your terminal. When you run “node,” you should see a single “>.” This is the node shell, hit ctrl-c or cmd-c to close it.</p>
       <p>When you run “npm” with no arguments, you should see a bunch of usage information. Keep in mind that “npm” often requires root permissions to run. If an npm command fails for unclear reasons, try running it through “sudo.”</p>
     </div> <!-- container -->
   </div> <!-- blue section -->
 
+
     <!-- MONGODB SECTION -->
-    <div class="container">
+    <div class="container" ng-show="os">
       <h2>2. Installing MongoDB</h2>
-      <div class="osx">
+      <!-- *************
+             OSX
+      ****************** -->
+      <div class="osx" ng-show="os == 'osx'">
         <p>Next, we’re going to install MongoDB. Open up your Terminal window and run</p>
         <div class="code">
           <p>sudo brew install mongodb</p>
@@ -39,47 +71,148 @@
         <div class="code">
           <p>mongod</p>
         </div> <!-- code -->
+        <p>directly from your command line.</p>
         <p>Think of mongod as your local MongoDB server- you need to have a mongod process running in order to be able to use MongoDB. You can now leave mongod running, open up another terminal, and run</p>
         <div class="code">
           <p>mongo test</p>
         </div> <!-- code -->
       </div> <!-- osx -->
+
+      <!-- *************
+             WINDOWS
+      ****************** -->
+      <div class="windows" ng-show="os == 'windows'">
+        <p>Go to http://www.mongodb.org/downloads and download the latest version of MongoDB for Windows, which should be a plain zip file. Once the download is done, extract the contents of the zip file to a memorable directory, such as 'c:\mongodb'.</p>
+        <p>That's it! After the installation process is done, you should be able to run the command:</p>
+        <div class="code">
+          <p>/c/mongodb/bin/mongod</p>
+        </div> <!-- code -->
+        <p>Think of mongod as your local MongoDB server- you need to have a mongod process running in order to be able to use MongoDB. You can now leave mongod running, open up another terminal, and run</p>
+        <div class="code">
+          <p>/c/mongodb/bin/mongo test</p>
+        </div> <!-- code -->
+        <p>This should open up the MongoDB shell. Hit ctrl-c to close the MongoDB shell.</p>
+      </div> <!-- windows -->
+
+      <!-- *************
+             UBUNTU
+      ****************** -->
+      <div class="ubuntu" ng-show="os == 'ubuntu'">
+        <p>Next, we're going to install MongoDB. Open up your shell and run:</p>
+        <div class="code">
+          <p>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10</p>
+          <p>echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/10gen.list</p>
+          <p>sudo apt-get update</p>
+          <p>sudo apt-get install mongodb-10gen</p>
+        </div>
+        <p>That's it! After the installation process is done, you should be able to run the command:</p>
+        <div class="code">
+          <p>mongod</p>
+        </div>
+        <p>directly from your command line.</p>
+        <p>Think of mongod as your local MongoDB server- you need to have a mongod process running in order to be able to use MongoDB. You can now leave mongod running, open up another terminal, and run</p>
+        <div class="code">
+          <p>mongo test</p>
+        </div> <!-- code -->
+      </div> <!-- ubuntu -->
     </div> <!-- container -->
 
 
+
     <!-- EXPRESS/SAILS SECTION -->
-    <div class="blue-section">
+    <div class="blue-section" ng-show="os">
       <div class="container">
         <h2>3. Installing ExpressJS / Sailsjs</h2>
-        <p>Now that we have MongoDB and NodeJS, it is time to install ExpressJS- this is pretty trivial now that we already have npm installed from step 2. Open up a terminal and run:</p>
-        <div class="code">
-          <p>npm install express -g</p>
-        </div> <!-- code -->
-        <p>The “-g” flag means that the package will be installed so you can run it from your terminal.</p>
-        <p>We’re using ExpressJS here because it adds some extremely useful tools for web development that NodeJS lacks. Contrary to what you may have heard, NodeJS is not a fully featured web server. NodeJS is simply a tool for doing I/O in an event-based concurrency framework with Javascript. It may be sufficient for a trivial server that prints “Hello, World” for every HTTP request, but it makes more sophisticated web development more difficult than it has to be. ExpressJS provides a familiar MVC (Model-View-Controller) framework for you to work with.</p>
-        <h3>Creating an ExpressJS Application</h3>
-        <p>Now that we have all of our server tools in place, let’s create an ExpressJS application. Start by running the command</p>
-        <div class="code">
-          <p>express mytestapp</p>
-          <p>cd mytestapp</p>
-          <p>npm install</p>
-        </div> <!-- code -->
-        <p>This should create a “mytestapp” folder in your current directory that will contain your application. You should be able to now run</p>
-        <div class="code">
-          <p>node app.js</p>
-        </div> <!-- code -->
-        <p>from the “mytestapp” folder. If you point your browser to http://localhost:3000, you should see a simple “Welcome to Express” screen.</p>
+        <p>Now that we have MongoDB and NodeJS, it is time to install our framework.</p>
+        <h3>Choose Your Preference</h3>
+        <form class="os-list">
+          <input id="sails" type="radio" name="framework" ng-model="framework" value="sails">
+          <label for="sails">Sailsjs</label>
+          <input id="express" type="radio" name="framework" ng-model="framework" value="express">
+          <label for="express">Express</label>
+        </form>
+        <!-- *************
+             EXPRESS
+      ****************** -->
+        <div class="express" ng-show="framework == 'express'">
+          <p>Open up a terminal and run:</p>
+          <div class="code">
+            <p>npm install express -g</p>
+          </div> <!-- code -->
+          <p>The “-g” flag means that the package will be installed so you can run it from your terminal.</p>
+          <p>ExpressJS is useful because it adds some extremely useful tools for web development that NodeJS lacks. Contrary to what you may have heard, NodeJS is not a fully featured web server. NodeJS is simply a tool for doing I/O in an event-based concurrency framework with Javascript. It may be sufficient for a trivial server that prints “Hello, World” for every HTTP request, but it makes more sophisticated web development more difficult than it has to be. ExpressJS provides a familiar MVC (Model-View-Controller) framework for you to work with.</p>
+          <h3>Creating an ExpressJS Application</h3>
+          <p>Now that we have all of our server tools in place, let’s create an ExpressJS application. Start by running the command</p>
+          <div class="code">
+            <p>express mytestapp</p>
+            <p>cd mytestapp</p>
+            <p>npm install</p>
+          </div> <!-- code -->
+          <p>This should create a “mytestapp” folder in your current directory that will contain your application. You should be able to now run</p>
+          <div class="code">
+            <p>node app.js</p>
+          </div> <!-- code -->
+          <p>from the “mytestapp” folder. If you point your browser to http://localhost:3000, you should see a simple “Welcome to Express” screen.</p>
+        </div> <!-- express -->
+
+        <!-- ****************
+               SAILSJS
+        ****************** -->
+        <div class="sails" ng-show="framework == 'sails'">
+
+          <!-- NOT WINDOWS -->
+          <p>To install the latest stable release with the command-line tool, open up your terminal and input the following:</p>
+          <div class="not-windows" ng-show="os !== 'windows'">
+            <div class="code">
+              <p>sudo npm -g install sails</p>
+            </div> <!-- code -->
+          </div> <!-- not-windows -->
+
+          <!-- WINDOWS -->
+          <div class="windows" ng-show="os == 'windows'">
+            <div class="code">
+              <p>npm -g install sails</p>
+            </div>
+          </div> <!-- windows -->
+          <p>The “-g” flag means that the package will be installed so you can run it from your terminal.</p>
+          <p>Sails accomplishes many of the same goals as other MVC web application frameworks, using many of the same methodologies. This was done on purpose. A consistent approach makes developing apps more predictable and efficient for everybody involved.</p>
+          <p>Imagine starting a new job at a company building a Sails app (or imagine starting the company, if that's your thing.) If anyone on your team has worked with frameworks like Zend, Laravel, CodeIgniter, Cake, Grails, Django, ASP.NET MVC, or Rails, Sails will feel pretty familiar. Not only that, but they can look at a Sails project and know, generally, how to code up the basic patterns they've implemented over and over again in the past; whether their background is in PHP, Ruby, Java, C#, or Node.js. What about your second app, or your third? Each time you create a new Sails app, you start with a sane, familiar boilerplate that makes you more productive. In many cases, you'll even be able to recycle some of your backend code.</p>
+
+
+          <h3>Creating a Sailsjs Application</h3>
+          <p>Now that we have all our tools in place, let's create a Sailsjs application. Start by running the command:</p>
+          <div class="code">
+            <p>sails new testProject</p>
+          </div> <!-- code -->
+          <p>Now lift the server</p>
+          <div class="code">
+            <p>cd testProject</p>
+            <p>sails lift</p>
+          </div> <!-- code -->
+          <p>At this point, if you visit http://localhost:1337/ you will see the default home page.</p>
+        </div> <!-- sails -->
       </div> <!-- container -->
     </div> <!-- blue-section -->
 
 
     <!-- ANGULARJS SECTION -->
-    <div class="container">
+    <div class="container" ng-show="os">
       <h2>4. Adding AngularJS</h2>
-      <p>Add this code enclosed in a "script" tag to your application:</p>
+      <p>Alrighty, the final step is to add in AngularJS. Go into your index.html file - specifically wherever you have your head tags.</p>
+      <p>Before the closing head tag, add this code enclosed in a "script" tag to your application</p>
       <div class="code">
         <p>src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></p>
       </div> <!-- code -->
+      <p>Next, make sure you add "ng-app" inside the html tag of your application to initiate AngularJS. So it should look something like this: < html ng-app=""></p>
+      <p>From there, you're ready to rock and role with Angular!</p>
+    </div>
+
+
+    <div class="blue-section" ng-show="os">
+      <div class="container">
+        <h2>Conclusion</h2>
+        <p>And that's it! For further documentation/tutorials on how to use the stack together, there are ample examples and resources out there for you to check out. Go get your MEAN on!</p>
+      </div>
     </div>
 
 
