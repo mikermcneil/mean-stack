@@ -12,6 +12,8 @@
   //navigation styles
   .nav {
     height: 70px;
+    position: fixed;
+    display: none;
     ul {
       display: inline-block;
       width: 100%;
@@ -19,7 +21,7 @@
       li {
         display: block;
         float: left;
-        width: 25%;
+        width: 100%;
         text-align: center;
         padding-top: 25px;
         a {
@@ -42,26 +44,45 @@
     height: 750px;
     h1 {
       // font-family: 'Josefin Slab', serif;
-      font-family: 'Roboto Slab', serif;
+      // font-family: 'Roboto Slab', serif;
       text-align: center;
       color: @white;
-      font-size: 4.5em;
+      font-size: 4em;
       font-weight: 100;
-      padding-top: 70px;
+      padding-top: 50px;
     }
     p {
       text-align: center;
       color: @white;
-      font-size: 1.1em;
+      font-size: 1em;
       font-weight: normal;
-      padding-top: 10px;
+      padding: 10px 0;
       margin: 0 auto;
-      width: 600px;
+      width: 750px;
+      line-height: 1.4;
+    }
+    a {
+      background-color: @pink;
+      color: @white;
+      opacity: .9;
+      padding: 10px 15px;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin: 15px auto;
+      width: 150px;
+      border-radius: 10px;
+      display: block;
+      text-align: center;
+      font-size:.8em;
+      border: 1px solid @white;
+      &:hover {
+        opacity: 1;
+      }
     }
     img {
       display: block;
       margin: 0 auto;
-      padding-top: 30px;
+      padding-top: 10px;
     }
   } //main-turquoise
 
@@ -79,7 +100,7 @@
       border: 1px solid @white;
       margin-top: -35px;
       position: absolute;
-      left: 49%;
+      left: 48%;
       background-image: url('/images/icon_arrow.png');
       background-repeat: no-repeat;
       background-position: center;

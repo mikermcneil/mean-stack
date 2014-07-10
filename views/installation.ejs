@@ -1,5 +1,8 @@
 <!-- Installation page -->
 <div class="installation-page">
+  <div class="nav">
+    <span><a href="./">&lt; Go Back</a></span>
+  </div>
   <!-- Introduction -->
   <div class="container">
     <h1>MEAN Stack Set Up</h1>
@@ -7,20 +10,18 @@
     <h3>Choose your Operating System:</h3>
     <form class="os-list">
       <input id="osx" type="radio" name="os" ng-model="os" value="osx">
-      <label for="osx">OSX</label>
+      <label for="osx" class="osx">OSX</label>
       <input id="windows" type="radio" name="os" ng-model="os" value="windows">
-      <label for="windows">Windows 7/8</label>
+      <label for="windows" class="windows">Windows 7/8</label>
       <input id="ubuntu" type="radio" name="os" ng-model="os" value="ubuntu">
-      <label for="ubuntu">Ubuntu</label>
+      <label for="ubuntu" class="ubuntu">Ubuntu</label>
     </form>
-    <div ng-show="os == 'osx'">osx selected</div>
-    <div ng-show="os == 'windows'">windows selected</div>
-    <div ng-show="os == 'ubuntu'">ubuntu selected</div>
   </div> <!-- container -->
 
   <!-- NODE/NPM SECTION -->
   <div class="blue-section" ng-show="os">
     <div class="container">
+      <div class="totem-icon node"></div>
       <h2>1. Installing NodeJS and npm</h2>
       <!-- *************
              OSX
@@ -36,7 +37,7 @@
              WINDOWS
       ****************** -->
       <div class="windows" ng-show="os == 'windows'">
-        <p>Download the installer from  http://nodejs.org/download/. I recommend using the installer rather than the binary to save yourself the extra work of adding the binary location to the system path.</p>
+        <p>Download the installer from  <a target="_blank" href="http://nodejs.org/download/">http://nodejs.org/download/</a>. I recommend using the installer rather than the binary to save yourself the extra work of adding the binary location to the system path.</p>
       </div> <!-- windows -->
       <!-- *************
              UBUNTU
@@ -58,6 +59,7 @@
 
     <!-- MONGODB SECTION -->
     <div class="container" ng-show="os">
+      <div class="totem-icon mongo"></div>
       <h2>2. Installing MongoDB</h2>
       <!-- *************
              OSX
@@ -82,7 +84,7 @@
              WINDOWS
       ****************** -->
       <div class="windows" ng-show="os == 'windows'">
-        <p>Go to http://www.mongodb.org/downloads and download the latest version of MongoDB for Windows, which should be a plain zip file. Once the download is done, extract the contents of the zip file to a memorable directory, such as 'c:\mongodb'.</p>
+        <p>Go to <a target="_blank" href="http://www.mongodb.org/downloads">http://www.mongodb.org/downloads</a> and download the latest version of MongoDB for Windows, which should be a plain zip file. Once the download is done, extract the contents of the zip file to a memorable directory, such as 'c:\mongodb'.</p>
         <p>That's it! After the installation process is done, you should be able to run the command:</p>
         <div class="code">
           <p>/c/mongodb/bin/mongod</p>
@@ -122,14 +124,15 @@
     <!-- EXPRESS/SAILS SECTION -->
     <div class="blue-section" ng-show="os">
       <div class="container">
+        <div class="totem-icon express"></div>
         <h2>3. Installing ExpressJS / Sailsjs</h2>
         <p>Now that we have MongoDB and NodeJS, it is time to install our framework.</p>
         <h3>Choose Your Preference</h3>
         <form class="os-list">
           <input id="sails" type="radio" name="framework" ng-model="framework" value="sails">
-          <label for="sails">Sailsjs</label>
+          <label for="sails" class="sails">Sailsjs</label>
           <input id="express" type="radio" name="framework" ng-model="framework" value="express">
-          <label for="express">Express</label>
+          <label for="express" class="express">Express</label>
         </form>
         <!-- *************
              EXPRESS
@@ -152,7 +155,7 @@
           <div class="code">
             <p>node app.js</p>
           </div> <!-- code -->
-          <p>from the “mytestapp” folder. If you point your browser to http://localhost:3000, you should see a simple “Welcome to Express” screen.</p>
+          <p>from the “mytestapp” folder. If you point your browser to <a target="_blank" href="http://localhost:3000">http://localhost:3000</a>, you should see a simple “Welcome to Express” screen.</p>
         </div> <!-- express -->
 
         <!-- ****************
@@ -189,7 +192,7 @@
             <p>cd testProject</p>
             <p>sails lift</p>
           </div> <!-- code -->
-          <p>At this point, if you visit http://localhost:1337/ you will see the default home page.</p>
+          <p>At this point, if you visit <a target="_blank" href="http://localhost:1337">http://localhost:1337/</a> you will see the default home page.</p>
         </div> <!-- sails -->
       </div> <!-- container -->
     </div> <!-- blue-section -->
@@ -197,13 +200,14 @@
 
     <!-- ANGULARJS SECTION -->
     <div class="container" ng-show="os">
+      <div class="totem-icon angular"></div>
       <h2>4. Adding AngularJS</h2>
       <p>Alrighty, the final step is to add in AngularJS. Go into your index.html file - specifically wherever you have your head tags.</p>
       <p>Before the closing head tag, add this code enclosed in a "script" tag to your application</p>
       <div class="code">
-        <p>src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></p>
+        <p>&lt;scriptsrc="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js">&lt;/script></p>
       </div> <!-- code -->
-      <p>Next, make sure you add "ng-app" inside the html tag of your application to initiate AngularJS. So it should look something like this: < html ng-app=""></p>
+      <p>Next, make sure you add "ng-app" inside the html tag of your application to initiate AngularJS. So it should look something like this: &lt;html ng-app=""></p>
       <p>From there, you're ready to rock and role with Angular!</p>
     </div>
 

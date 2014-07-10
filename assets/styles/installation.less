@@ -1,34 +1,77 @@
 .installation-page {
   // GENERAL PAGE STYLES
   background-color: @white;
-  font-family: "proxima-nova",sans-serif;
   color: @txtDk;
+  font-family: "proxima-nova",sans-serif;
 
-  .container {
-    width: 600px;
-    margin: 50px auto;
+  .nav {
+    display: block;
+    height: 70px;
+    margin: 0 auto;
+    width: 700px;
+    span {
+      display: inline-block;
+      height: 70px;
+      padding-top: 25px;
+      vertical-align: middle;
+      a {
+        color: @pink;
+        font-size: 1.1em;
+        padding: 20px;
+        &:hover {
+          color: @turquoise;
+        }
+      }
+    }
   }
 
+  .container {
+    margin: 0px auto 50px;
+    width: 600px;
+  }
+
+  // small totel icons in header of each section
+  .totem-icon {
+    height: 82px;
+    width: auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: block;
+    margin: 10px auto;
+    padding: 25px 0;
+    &.node {
+      background-image: url('/images/totem_node_small.png');
+    }
+    &.mongo {
+      background-image: url('/images/totem_mongo_small.png');
+      padding-top: 50px;
+    }
+    &.express {
+      background-image: url('/images/totem_express_small.png');
+    }
+    &.angular {
+      background-image: url('/images/totem_angular_small.png');
+      padding-top: 50px;
+    }
+  }
+
+
   h1 {
+    .header();
     font-size: 2em;
-    text-align: center;
     padding: 50px 0 25px;
-    font-weight: bold;
-    text-align: center;
   }
 
   h2 {
+    .header();
     font-size: 1.5em;
-    font-weight: bold;
-    padding: 25px 0 25px;
-    text-align: center;
+    padding: 0 0 25px;
   }
 
   h3 {
+    .header();
     font-size: 1.2em;
-    font-weight: bold;
     padding: 20px 0;
-    text-align: center;
   }
 
   p {
@@ -37,38 +80,118 @@
     margin-bottom: 20px;
   }
 
+  a, a:active {
+    color: @pink;
+    &:hover {
+      font-weight: bold;
+    }
+  }
 
   // styles a label that immediately follows a radio button
   .os-list input[type="radio"]:checked+label {
-    background-color: @turquoise;
-    color: @txtLt;
     border-radius: 10px;
+    color: @turquoise;
+    font-weight: bold;
+    &:hover {
+      color: @white;
+      font-weight: normal;
+    }
+    // custom images for each icon/state
+    &.osx {
+      background-image: url('/images/os_osx_selected.png');
+      &:hover {
+        background-image: url('/images/os_osx_hover.png');
+      }
+    }
+    &.windows {
+      background-image: url('/images/os_windows_selected.png');
+      &:hover {
+        background-image: url('/images/os_windows_hover.png');
+      }
+    }
+    &.ubuntu {
+      background-image: url('/images/os_ubuntu_selected.png');
+      &:hover {
+        background-image: url('/images/os_ubuntu_hover.png');
+      }
+    }
+    &.sails {
+      background-image: url('/images/sails_selected.png');
+      &:hover {
+        background-image: url('/images/sails_hover.png');
+      }
+    }
+    &.express {
+      background-image: url('/images/express_selected.png');
+      &:hover {
+        background-image: url('/images/express_hover.png');
+      }
+    }
   }
 
+  // OS list and Sails/express list
   .os-list {
     margin: 0 0 50px;
-    width: 100%;
     text-align: center;
+    width: 100%;
 
     // hide the radio buttons
     input[type="radio"] {
       display: none;
     }
 
+    // style the radio buttons/images
     label {
+      background-position: center 10px;
+      background-repeat: no-repeat;
       display: inline-block;
-      text-align: center;
-      padding: 0px 7px;
       margin: 0 10px;
+      padding: 60px 12px 0;
+      text-align: center;
+      width: 20%;
       &:hover {
-        cursor: pointer;
-        color: @txtLt;
         background-color: @turquoise;
         border-radius: 10px;
+        color: @txtLt;
+        cursor: pointer;
+      }
+      // custom images for each image/state
+      &.osx {
+        background-image: url('/images/os_osx.png');
+        &:hover, &:active {
+          background-image: url('/images/os_osx_hover.png');
+        }
+      }
+      &.windows {
+        background-image: url('/images/os_windows.png');
+        &:hover, &:active {
+          background-image: url('/images/os_windows_hover.png');
+        }
+      }
+      &.ubuntu {
+        background-image: url('/images/os_ubuntu.png');
+        &:hover, &:active {
+          background-image: url('/images/os_ubuntu_hover.png');
+        }
+      }
+      &.sails {
+        background-image: url('/images/sails.png');
+        &:hover, &:active {
+          background-image: url('/images/sails_hover.png');
+        }
+      }
+      &.express {
+        background-image: url('/images/express.png');
+        // not as tall as the others so needs own positioning
+        background-position: center 30px;
+        &:hover, &:active {
+          background-image: url('/images/express_hover.png');
+        }
       }
     }
   }
 
+  // alternating sections have a light blue/gray bkgd
   .blue-section {
     background-color: @ltGray;
     padding: 25px 0;
