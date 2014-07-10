@@ -1,5 +1,6 @@
 .installation-page {
   // GENERAL PAGE STYLES
+  overflow: hidden;
   background-color: @white;
   color: @txtDk;
   font-family: "proxima-nova",sans-serif;
@@ -28,9 +29,10 @@
   .container {
     margin: 0px auto 50px;
     width: 600px;
+    position: relative;
   }
 
-  // small totel icons in header of each section
+  // small totem icons in header of each section
   .totem-icon {
     height: 82px;
     width: auto;
@@ -84,6 +86,8 @@
     color: @pink;
     &:hover {
       font-weight: bold;
+      transition: color 500ms;
+      -webkit-transition: color 500ms;
     }
   }
 
@@ -95,6 +99,8 @@
     &:hover {
       color: @white;
       font-weight: normal;
+      transition: color 500ms, background 500ms;
+      -webkit-transition: color 500ms background 500ms;
     }
     // custom images for each icon/state
     &.osx {
@@ -154,6 +160,8 @@
         border-radius: 10px;
         color: @txtLt;
         cursor: pointer;
+        transition: color 500ms, background 500ms;
+        -webkit-transition: color 500ms, background 500ms;
       }
       // custom images for each image/state
       &.osx {
@@ -191,6 +199,36 @@
     }
   }
 
+  // Transparent background totem styles
+  img.totem {
+    position: absolute;
+    opacity: .1;
+    &.node {
+      top: 70px;
+      left: -500px;
+      width: 431px;
+      height: 430px;
+    }
+    &.mongo {
+      top: 190px;
+      right: -600px;
+      width: 591px;
+      height: 395px;
+    }
+    &.express {
+      top: 600px;
+      left: -700px;
+      width: 1046px;
+      height: 407px;
+    }
+    &.angular {
+      top: 80px;
+      right: -440px;
+      width: 305px;
+      height: 439px;
+    }
+  }
+
   // alternating sections have a light blue/gray bkgd
   .blue-section {
     background-color: @ltGray;
@@ -213,7 +251,4 @@
       margin: 0px;
     }
   }
-
-
-
 }
